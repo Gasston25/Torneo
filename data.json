@@ -1,0 +1,397 @@
+{
+  "jugadores": {
+    "Mateo Franco Britez": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Lautaro Luca Silva": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Bruno Albarracín": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Santiago Thiago Nieto": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Nicolás Bruno Vera": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Martín Thiago Solis": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Emiliano Luca Sosa": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Facundo Ojeda": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Thiago Santino Batista": {
+      "equipo": "Primero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Agustín Velasquez": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Nehuén Gigena": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Santino Arufe": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Benjamín Protti": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Thiago Guayama": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Santino Orellano": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Bautista Bussu": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Adriel Villalba": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Valentino Pogonza": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Nahuel Dávalos": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Facundo Gutiérrez": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Benicio Cuspodus": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Tiziano Duarte": {
+      "equipo": "Segundo",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Valentino Godoy": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Julián Godoy": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Santiago González": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Thiago Giménez": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Santiago Esparza": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Sebastián Godoy": {
+      "equipo": "Tercero",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Gabriel Ochicua": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Lautaro Lescano": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Fabrizio Garay": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Kevin Flores": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Kiara Sotelo": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Kevin González": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Valentín Ovejero": {
+      "equipo": "Cuarto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Renzo Figueredo": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Genaro Chumbita": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Gianluca ChumbitaJR": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Benjamín Landriel": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Joaquín Ibañez": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Agustín Romero": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Emiliano Casafus": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Thiago Coria": {
+      "equipo": "Quinto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Juan Colman": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Lautaro Leiva": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Thiago Maldonado": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Tobías Silveira": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Renzo Cejas": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    },
+    "Pablo Buse": {
+      "equipo": "Sexto",
+      "g": 0,
+      "a": 0,
+      "t": 0,
+      "v": 0
+    }
+  },
+  "equipos": {
+    "Primero": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    },
+    "Segundo": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    },
+    "Tercero": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    },
+    "Cuarto": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    },
+    "Quinto": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    },
+    "Sexto": {
+      "pj": 0,
+      "pg": 0,
+      "pe": 0,
+      "pp": 0,
+      "gf": 0,
+      "gc": 0
+    }
+  }
+}

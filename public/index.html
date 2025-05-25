@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Torneo Naciones Unidas 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+  <header>
+    <img src="./img/logo.png" alt="Logo Colegio Naciones Unidas">
+    <h1>Torneo Naciones Unidas 2025</h1>
+    <div id="loginWidget">
+      <a href="view/login.html"><button id="btnLogin">Login</button></a>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab-button active" data-tab="inicio">Inicio</button>
+    <button class="tab-button" data-tab="fixture">Fixture</button>
+    <button class="tab-button" data-tab="carga" style="display:none">Carga</button>
+    <button class="tab-button" data-tab="resultados">Resultados</button>
+    <button class="tab-button" data-tab="mvp">Tabla MVP</button>
+    <button class="tab-button" data-tab="noticias">Noticias</button>
+    <button class="tab-button" data-tab="galeria">Galería</button>
+    <button class="tab-button" data-tab="jugadores">Jugadores</button>
+  </nav>
+<!-- inicio -->
+  <section id="inicio" class="active">
+    <div class="grid-cards">
+      <div class="big-card" style="grid-column: span 2">
+        <header>Bienvenida</header>
+        <div class="body">
+          <p>Bienvenidos a la página del Torneo de Fútbol Escolar del Colegio Naciones Unidas, creado por los alumnos y acompañado por los directivos para reforzar el trabajo en equipo e impulsar el deporte.</p>
+        </div>
+      </div>
+      <div class="big-card">
+        <header>Eliminación Directa</header>
+        <div class="body">
+          <p>Competencia escolar en dos fases: Eliminación directa y Liga.</p>
+          <p>8 equipos, cuartos de final, semifinal y final. Partido único.</p>
+          <p><em>Miércoles 7 de mayo - 14:00 a 14:45</em></p>
+        </div>
+      </div>
+      <div class="big-card">
+        <header>Copa de Liga</header>
+        <div class="body">
+          <p>6 equipos, todos contra todos ida y vuelta (10 fechas).</p>
+          <p>Final con público entre los dos primeros.</p>
+          <p><em>Inicio estimado: Julio</em></p>
+        </div>
+      </div>
+      <div class="big-card" style="grid-column: span 2">
+        <header>Objetivos y Reglamento</header>
+        <div class="body">
+          <ul>
+            <li>Fomentar espíritu deportivo</li>
+            <li>Trabajo en equipo</li>
+            <li>Rotación obligatoria (5–7 jugadores)</li>
+            <li>Sistema de tarjetas (A/Azul/R)</li>
+            <li>Tolerancia 10 minutos</li>
+            <li>Uniforme obligatorio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- fin inicio -->
+
+<!-- fixture -->
+  <section id="fixture">
+    <h2>Próximos Partidos</h2>
+    <div id="proximosPartidos"></div>
+  </section>
+<!-- fin fixture -->
+
+<!-- Resultados -->
+  <section id="resultados">
+    <h2>Resultados Actuales</h2>
+    <div id="listaPartidos"></div>
+    <h2>Tabla de Posiciones</h2>
+    <table>
+      <thead><tr><th>Equipo</th><th>PJ</th><th>PG</th><th>PE</th><th>PP</th><th>GF</th><th>GC</th><th>PTS</th></tr></thead>
+      <tbody id="tablaPos"></tbody>
+    </table>
+    <script>
+  const datosEquipos = {
+    "Primero": { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+    "Segundo": { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+    "Tercero": { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+    "Cuarto":  { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+    "Quinto":  { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+    "Sexto":   { pj: 0, pg: 0, pe: 0, pp: 0, gf: 0, gc: 0 },
+  };
+
+  const tablaPos = document.getElementById('tablaPos');
+
+  // Convertimos a array y calculamos PTS
+  const equiposOrdenados = Object.entries(datosEquipos)
+    .map(([nombre, e]) => {
+      const pts = e.pg * 3 + e.pe; // 3 por victoria, 1 por empate
+      return { nombre, ...e, pts };
+    })
+    .sort((a, b) => b.pts - a.pts); // orden descendente por puntos
+
+  // Llenamos la tabla
+  equiposOrdenados.forEach(eq => {
+    const fila = document.createElement('tr');
+    fila.innerHTML = `
+      <td>${eq.nombre}</td>
+      <td>${eq.pj}</td>
+      <td>${eq.pg}</td>
+      <td>${eq.pe}</td>
+      <td>${eq.pp}</td>
+      <td>${eq.gf}</td>
+      <td>${eq.gc}</td>
+      <td>${eq.pts}</td>
+    `;
+    tablaPos.appendChild(fila);
+  });
+</script>
+  </section>
+<!-- fin Resultados -->
+
+<!-- MVP -->
+  <section id="mvp">
+    <h2>Tabla MVP</h2>
+    <table>
+      <thead><tr><th>Jugador</th><th>Equipo</th><th>G</th><th>A</th><th>T</th><th>V</th><th>Pts</th></tr></thead>
+      <tbody id="tablaMVP"></tbody>
+    </table>
+  </section>
+<!-- Fin MVP -->
+
+<!-- Noticias -->
+  <section id="noticias">
+    <div class="big-card">
+      <header>Noticias</header>
+      <div class="body"><p>Hoy 08/05 Segundo vence a Sexto con polémico arbitraje, ampliaremos!.</p></div>
+    </div>
+  </section>
+<!-- fin Noticias -->
+
+<!-- Galeria -->
+  <section id="galeria">
+    <h2>Galería del Torneo</h2>
+    <div class="gallery">
+      <figure>
+        <img src="./img/imagenespartido1.jpg" alt="Partido 1">
+        <figcaption>Sexto campeones invictos 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/imagenespartido2.jpeg" alt="Partido 2">
+        <figcaption>El equipo de Primero celebrando la victoria sobre Sexto primaria</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/imagenespartido3.jpeg" alt=equipo>
+        <figcaption>Alexander Desseff, Mejor arquero del torneo final 2024</figcaption>
+      </figure>
+      <figure>
+        <img src="./img/imagenesfestejo.jpeg" alt="Festejo">
+        <figcaption>Benjamin Landriel, Mejor jugador del torneo inicial 2024</figcaption>
+      </figure>
+    </div>
+  </section>
+<!-- Fin Galeria -->
+
+<!-- Jugadores -->
+  <section id="jugadores">
+    <h2>Listado de Jugadores</h2>
+    <table>
+      <thead><tr><th>Jugador</th><th>Equipo</th></tr></thead>
+      <tbody id="tablaJugadores"></tbody>
+      <tr><td>Mateo Franco Britez</td><td>Primero</td></tr>
+<tr><td>Lautaro Luca Silva</td><td>Primero</td></tr>
+<tr><td>Bruno Santino Albarracín</td><td>Primero</td></tr>
+<tr><td>Santiago Thiago Nieto</td><td>Primero</td></tr>
+<tr><td>Nicolás Bruno Vera</td><td>Primero</td></tr>
+<tr><td>Martín Thiago Solis</td><td>Primero</td></tr>
+<tr><td>Emiliano Luca Sosa</td><td>Primero</td></tr>
+<tr><td>Facundo Ojeda</td><td>Primero</td></tr>
+<tr><td>Thiago Santino Batista</td><td>Primero</td></tr>
+
+<td style="background-color: #800;"></td><td style="background-color: #800;"></td>
+
+<tr><td>Agustín Velasquez</td><td>Segundo</td></tr>
+<tr><td>Nehuén Gigena</td><td>Segundo</td></tr>
+<tr><td>Santino Arufe</td><td>Segundo</td></tr>
+<tr><td>Benjamín Protti</td><td>Segundo</td></tr>
+<tr><td>Thiago Guayama</td><td>Segundo</td></tr>
+<tr><td>Santino Orellano</td><td>Segundo</td></tr>
+<tr><td>Bautista Bussu</td><td>Segundo</td></tr>
+<tr><td>Adriel Villalba</td><td>Segundo</td></tr>
+<tr><td>Valentino Pogonza</td><td>Segundo</td></tr>
+<tr><td>Nahuel Dávalos</td><td>Segundo</td></tr>
+<tr><td>Facundo Gutiérrez</td><td>Segundo</td></tr>
+<tr><td>Benicio Cuspodus</td><td>Segundo</td></tr>
+<tr><td>Tiziano Duarte</td><td>Segundo</td></tr>
+
+<td style="background-color: #800;"></td><td style="background-color: #800;"></td>
+
+<tr><td>Valentino Godoy</td><td>Tercero</td></tr>
+<tr><td>Julián Godoy</td><td>Tercero</td></tr>
+<tr><td>Santiago González</td><td>Tercero</td></tr>
+<tr><td>Thiago Giménez</td><td>Tercero</td></tr>
+<tr><td>Santiago Esparza</td><td>Tercero</td></tr>
+<tr><td>Sebastián Godoy</td><td>Tercero</td></tr>
+
+<td style="background-color: #800;"></td><td style="background-color: #800;"></td>
+
+<tr><td>Gabriel Ochicua</td><td>Cuarto</td></tr>
+<tr><td>Lautaro Lescano</td><td>Cuarto</td></tr>
+<tr><td>Fabrizio Garay</td><td>Cuarto</td></tr>
+<tr><td>Kevin Flores</td><td>Cuarto</td></tr>
+<tr><td>Kiara Sotelo</td><td>Cuarto</td></tr>
+<tr><td>Kevin González</td><td>Cuarto</td></tr>
+<tr><td>Valentín Ovejero</td><td>Cuarto</td></tr>
+
+<td style="background-color: #800;"></td><td style="background-color: #800;"></td>
+
+<tr><td>Renzo Figueredo</td><td>Quinto</td></tr>
+<tr><td>Genaro Chumbita</td><td>Quinto</td></tr>
+<tr><td>Gianluca Chumbita JR</td><td>Quinto</td></tr>
+<tr><td>Benjamín Landriel</td><td>Quinto</td></tr>
+<tr><td>Joaquín Ibañez</td><td>Quinto</td></tr>
+<tr><td>Agustín Romero</td><td>Quinto</td></tr>
+<tr><td>Emiliano Casafus</td><td>Quinto</td></tr>
+<tr><td>Thiago Coria</td><td>Quinto</td></tr>
+
+<td style="background-color: #800;"></td><td style="background-color: #800;"></td>
+
+<tr><td>Juan Colman</td><td>Sexto</td></tr>
+<tr><td>Lautaro Leiva</td><td>Sexto</td></tr>
+<tr><td>Thiago Maldonado</td><td>Sexto</td></tr>
+<tr><td>Tobías Silveira</td><td>Sexto</td></tr>
+<tr><td>Renzo Cejas</td><td>Sexto</td></tr>
+<tr><td>Pablo Buse</td><td>Sexto</td></tr>
+
+    </table>
+  </section>
+  <!-- Fin Jugadores -->
+
+  <!-- Script de navegación -->
+  <script>
+  const tabs = document.querySelectorAll('nav .tab-button');
+  const secs = document.querySelectorAll('section[id]');
+  
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    secs.forEach(s => s.classList.remove('active'));
+    
+    t.classList.add('active');
+    document.getElementById(t.dataset.tab).classList.add('active');
+  }));
+</script>
+<!-- script tablaMVP-->
+ <script>
+  const datosJugadores = {
+    "Mateo Franco Britez":    { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Lautaro Luca Silva":     { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Bruno Albarracín":       { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Santiago Thiago Nieto":  { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Nicolás Bruno Vera":     { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Martín Thiago Solis":    { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Emiliano Luca Sosa":     { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Facundo Ojeda":          { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+    "Thiago Santino Batista": { equipo: "Primero", g: 0, a: 0, t: 0, v: 0 },
+
+    "Agustín Velasquez":      { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Nehuén Gigena":          { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Santino Arufe":          { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Benjamín Protti":        { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Thiago Guayama":         { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Santino Orellano":       { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Bautista Bussu":         { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Adriel Villalba":        { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Valentino Pogonza":      { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Nahuel Dávalos":         { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Facundo Gutiérrez":      { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Benicio Cuspodus":       { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+    "Tiziano Duarte":         { equipo: "Segundo", g: 0, a: 0, t: 0, v: 0 },
+
+    "Valentino Godoy":        { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+    "Julián Godoy":           { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+    "Santiago González":      { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+    "Thiago Giménez":         { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+    "Santiago Esparza":       { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+    "Sebastián Godoy":        { equipo: "Tercero", g: 0, a: 0, t: 0, v: 0 },
+
+    "Gabriel Ochicua":        { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Lautaro Lescano":        { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Fabrizio Garay":         { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Kevin Flores":           { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Kiara Sotelo":           { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Kevin González":         { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+    "Valentín Ovejero":       { equipo: "Cuarto",  g: 0, a: 0, t: 0, v: 0 },
+
+    "Renzo Figueredo":        { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Genaro Chumbita":        { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Gianluca ChumbitaJR":    { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Benjamín Landriel":      { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Joaquín Ibañez":         { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Agustín Romero":         { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Emiliano Casafus":       { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+    "Thiago Coria":           { equipo: "Quinto",  g: 0, a: 0, t: 0, v: 0 },
+
+    "Juan Colman":            { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 },
+    "Lautaro Leiva":          { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 },
+    "Thiago Maldonado":       { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 },
+    "Tobías Silveira":        { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 },
+    "Renzo Cejas":            { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 },
+    "Pablo Buse":             { equipo: "Sexto",   g: 0, a: 0, t: 0, v: 0 }
+  };
+
+    const tablaMVP = document.getElementById('tablaMVP');
+
+  // Convertimos el objeto en un array y calculamos los puntos
+  const jugadoresOrdenados = Object.entries(datosJugadores)
+    .map(([nombre, datos]) => {
+      const pts = datos.g + datos.a + datos.t + datos.v;
+      return { nombre, ...datos, pts };
+    })
+    .sort((a, b) => b.pts - a.pts); // orden descendente
+
+  // Cargar las filas ordenadas
+  jugadoresOrdenados.forEach(j => {
+    const fila = document.createElement('tr');
+    fila.innerHTML = `
+      <td>${j.nombre}</td>
+      <td>${j.equipo}</td>
+      <td>${j.g}</td>
+      <td>${j.a}</td>
+      <td>${j.t}</td>
+      <td>${j.v}</td>
+      <td>${j.pts}</td>
+    `;
+    tablaMVP.appendChild(fila);
+  });
+</script>
+<!-- script para datos -->
+<script>
+  const ws = new WebSocket(`ws://${location.host}`);
+
+  function renderDatos(data) {
+    const tablaMVP = document.getElementById('tablaMVP');
+    tablaMVP.innerHTML = '';
+
+    // Ordenar jugadores por puntos
+    const jugadoresOrdenados = Object.entries(data.jugadores)
+      .map(([nombre, j]) => {
+        const pts = j.g + j.a + j.t + j.v;
+        return { nombre, ...j, pts };
+      })
+      .sort((a,b) => b.pts - a.pts);
+
+    jugadoresOrdenados.forEach(j => {
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td>${j.nombre}</td><td>${j.equipo}</td>
+        <td>${j.g}</td><td>${j.a}</td><td>${j.t}</td><td>${j.v}</td><td>${j.pts}</td>
+      `;
+      tablaMVP.appendChild(fila);
+    });
+
+    // Tabla de posiciones
+    const tablaPos = document.getElementById('tablaPos');
+    tablaPos.innerHTML = '';
+
+    const equiposOrdenados = Object.entries(data.equipos)
+      .map(([nombre, e]) => {
+        const pts = e.pg * 3 + e.pe;
+        return { nombre, ...e, pts };
+      })
+      .sort((a,b) => b.pts - a.pts);
+
+    equiposOrdenados.forEach(eq => {
+      const fila = document.createElement('tr');
+      fila.innerHTML = `
+        <td>${eq.nombre}</td><td>${eq.pj}</td><td>${eq.pg}</td><td>${eq.pe}</td><td>${eq.pp}</td>
+        <td>${eq.gf}</td><td>${eq.gc}</td><td>${eq.pts}</td>
+      `;
+      tablaPos.appendChild(fila);
+    });
+  }
+
+  ws.onmessage = e => {
+    const msg = JSON.parse(e.data);
+    if (msg.type === 'update') {
+      renderDatos(msg.data);
+    }
+  };
+
+  ws.onopen = () => {
+    console.log('Conectado a WS');
+  };
+
+  ws.onerror = e => {
+    console.error('Error WS', e);
+  };
+</script>
+
+<!-- fin del codigo -->
+</body>
+</html>
