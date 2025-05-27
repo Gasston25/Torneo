@@ -20,7 +20,7 @@ form.addEventListener('submit', function (e) {
   const validPass = 'CnumTorneoPromo2025';
 
   if (username === validUser && password === validPass) {
-    window.location.href = '../view/admin.html';
+    window.location.href = '../view/adminview.html';
   } else {
     errorMsg.textContent = 'Usuario o contraseña incorrectos.';
     errorMsg.style.display = 'block';
